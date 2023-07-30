@@ -9,30 +9,31 @@
 using System.Data;
 using System.Security.Cryptography;
 
-int GetNumber(string text)
+int GetNumber(string text) // Функция запрашивает у пользователя число
 {
     Console.Write($"{text} ");
     return int.Parse(Console.ReadLine()!);
 }
 
-double[,] FillArray(int line, int columns)
+double[,] FillArray(int line, int columns) //Функция заполняет массив случайными вещественными числами с округлением до двух знаков после запятой
 {
     double[,] array = new double[line, columns];
     Random random = new Random();
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
-            array[i, j] = Math.Round(random.Next(-100, 100)+random.NextDouble(),2);
+            array[i, j] = Math.Round(random.Next(-100, 100) + random.NextDouble(), 2);
 
     return array;
 }
 
-void PrintArray(double[,] array)
+void PrintArray(double[,] array) //Функция печатает массив
 {
     for (int i = 0; i < array.GetLength(0); i++)
-    {        for (int j = 0; j < array.GetLength(1); j++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
             Console.Write($"{array[i, j]} ");
 
-    Console.WriteLine();
+        Console.WriteLine();
     }
 }
 
